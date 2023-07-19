@@ -9,7 +9,7 @@ const Article = ({ article }) => {
   const { name } = article.attributes.author.data.attributes;
   const category = article.attributes.category.data?.attributes?.name;
   const categorySlug = article.attributes.category.data?.attributes?.slug;
-  const image = `http://localhost:1337${article.attributes.image.data.attributes.formats.medium.url}`
+  const image = `process.env.NEXT_PUBLIC_STRAPI_API_URL${article.attributes.image.data.attributes.formats.medium.url}`
   const publishedAt = new Date(article.attributes.publishedAt);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const publishDate = new Intl.DateTimeFormat('es-ES', options).format(publishedAt);
